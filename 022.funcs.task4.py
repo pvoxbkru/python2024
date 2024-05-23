@@ -72,6 +72,8 @@ def parse_config(config):
     current_sub_command = []
     for line in lines:
         if line:
+            if line.startswith("exit") or line.startswith("building"):
+                continue
             if current_root_command and line.startswith(" "):
                 current_sub_command.append(line.strip())
             elif line[0].isalpha():
